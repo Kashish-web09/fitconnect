@@ -1,0 +1,25 @@
+*{
+    font-family:'Poppins',sans-serif;
+}
+
+
+body{
+
+    background:#f8f9fa;
+
+}
+
+
+a{
+
+    text-decoration:none;
+
+}
+
+
+
+.card{
+
+    border-radius:16px;
+
+}

@@ -1,0 +1,322 @@
+<link rel="stylesheet" href="/css/auth.css">
+
+<main class="auth-wrapper">
+
+    <div class="container">
+
+        <div class="row min-vh-100 align-items-center justify-content-center g-5">
+
+
+            <!-- Image Section -->
+
+            <div class="col-lg-6 d-none d-lg-flex justify-content-center">
+
+                <div class="auth-image">
+
+                    <img
+                    src="/images/icons/login.png"
+                    class="img-fluid"
+                    alt="Fitness Login">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Login Card -->
+
+            <div class="col-12 col-md-8 col-lg-5">
+
+
+                <div class="card auth-card border-0 shadow-lg">
+
+
+                    <div class="card-body p-4 p-md-5">
+
+
+                        <!-- Header -->
+
+                        <div class="text-center mb-4">
+
+
+                            <div class="icon-box mx-auto">
+
+                                <i class="bi bi-heart-pulse-fill"></i>
+
+                            </div>
+
+
+                            <h2 class="fw-bold mt-4">
+                                Welcome Back 👋
+                            </h2>
+
+
+                            <p class="text-muted">
+                                Login to continue your fitness journey.
+                            </p>
+
+
+                        </div>
+
+
+
+                        <% if(typeof error!="undefined"){ %>
+
+                            <div class="alert alert-danger rounded-3">
+
+                                <i class="bi bi-exclamation-circle me-2"></i>
+
+                                <%= error %>
+
+                            </div>
+
+                        <% } %>
+
+
+
+
+
+<form action="/adminUser/signin" method="POST">
+
+
+
+<!-- Email -->
+
+<div class="mb-3">
+
+
+<label class="form-label fw-semibold">
+Email Address
+</label>
+
+
+<div class="input-group custom-input">
+
+
+<span class="input-group-text">
+
+<i class="bi bi-envelope"></i>
+
+</span>
+
+
+<input
+type="email"
+name="email"
+class="form-control"
+placeholder="Enter your email">
+
+
+</div>
+
+
+
+<% if(errors?.email){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.email.msg %>
+
+</div>
+
+<% } %>
+
+
+</div>
+
+
+
+
+
+<!-- Password -->
+
+
+<div class="mb-3">
+
+
+<label class="form-label fw-semibold">
+Password
+</label>
+
+
+<div class="input-group custom-input">
+
+
+<span class="input-group-text">
+
+<i class="bi bi-lock"></i>
+
+</span>
+
+
+
+<input
+id="password"
+type="password"
+name="password"
+class="form-control"
+placeholder="Enter password">
+
+
+
+<button
+class="btn btn-outline-secondary"
+type="button"
+onclick="togglePassword()">
+
+<i id="eye" class="bi bi-eye"></i>
+
+</button>
+
+
+</div>
+
+
+
+<% if(errors?.password){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.password.msg %>
+
+</div>
+
+<% } %>
+
+
+</div>
+
+
+
+
+
+
+<div class="d-flex justify-content-between mb-4">
+
+
+<div class="form-check">
+
+
+<input
+class="form-check-input"
+type="checkbox">
+
+
+<label class="form-check-label">
+
+Remember me
+
+</label>
+
+
+</div>
+
+
+
+<a href="#" class="forgot-link">
+
+Forgot Password?
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+<button class="btn login-btn w-100 btn-lg">
+
+
+<i class="bi bi-box-arrow-in-right me-2"></i>
+
+Login
+
+
+</button>
+
+
+
+</form>
+
+
+
+
+
+<hr class="my-4">
+
+
+
+<p class="text-center mb-0">
+
+
+Don't have an account?
+
+
+<a href="/adminUser/signup"
+class="signup-link fw-semibold">
+
+Create Account
+
+</a>
+
+
+</p>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</main>
+
+
+
+
+
+<script>
+
+function togglePassword(){
+
+const password=document.getElementById("password");
+
+const eye=document.getElementById("eye");
+
+
+if(password.type==="password"){
+
+password.type="text";
+
+eye.className="bi bi-eye-slash";
+
+
+}else{
+
+
+password.type="password";
+
+eye.className="bi bi-eye";
+
+
+}
+
+
+}
+
+
+</script>

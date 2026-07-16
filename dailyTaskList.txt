@@ -1,0 +1,30 @@
+todays taks->[
+    . Make customer and admin user code-{
+        signup,signin
+
+    } -- done
+    . get JWT Auth for both
+    . Make ejs for both->{
+        signup,signin
+    } -- done
+    . set applicaitonError file --done
+    .set MongoDb--done
+    . set .env -- done
+    . make upload file -- done
+]
+
+tomorrow task->[
+    Create profile syset--{
+        admin,customer
+    },
+    create admin dashboard(total user,total trainers,recet activity),
+    create layout(common for both) and navbar(seperated)--{
+        cutomer,admin
+    },
+    createEmailService-->{
+        welcome mail(for now only) 
+    }--done
+    start adding validaiton-->{
+        in both login and register routes
+    }
+]
