@@ -95,9 +95,8 @@ app.use('/adminUser', adminRoutes);
 
 app.get('/', (req, res) => {
 
-    res.send("Welcome to FitConnect");
-
-});
+res.redirect('/customerUser/signin')
+})
 
 
 // =======================

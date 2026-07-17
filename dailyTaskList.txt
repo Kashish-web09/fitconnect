@@ -18,13 +18,14 @@ tomorrow task->[
         admin,customer
     },
     create admin dashboard(total user,total trainers,recet activity),
+    forgot anad resetPass
     create layout(common for both) and navbar(seperated)--{
         cutomer,admin
-    },
+    },--done
     createEmailService-->{
         welcome mail(for now only) 
     }--done
     start adding validaiton-->{
         in both login and register routes
-    }
+    }--done
 ]
