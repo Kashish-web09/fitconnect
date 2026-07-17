@@ -29,3 +29,7 @@ tomorrow task->[
         in both login and register routes
     }--done
 ]
+
+
+BREVO_EMAIL=b1d121001@smtp-brevo.com
+BREVO_SMTP_KEY=bskIhww6bbq9W6B

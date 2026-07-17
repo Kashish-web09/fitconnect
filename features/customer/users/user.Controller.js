@@ -48,7 +48,9 @@ try {
             )
 await this.userRepo.signup(newUser)
 await welcomeMail(newUser.name,newUser.email)
+
             res.redirect('/customerUser/signin')
+
 
         } catch (err) {
             next(err)
@@ -97,7 +99,7 @@ process.env.JWT_SECRET_KEY,
                 secure:false,
                 maxAge:2*24*60*60*1000
             })
-            res.redirect('/')
+            res.redirect('/userDashboard')
             
         } catch (err) {
             next(err)
