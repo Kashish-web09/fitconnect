@@ -89,7 +89,7 @@ app.use('/adminUser', adminRoutes);
 
 app.get('/', (req, res) => {
 
-res.redirect('/')
+res.redirect('/customerUser/signin')
 })
 
 
