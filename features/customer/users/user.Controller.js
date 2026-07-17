@@ -99,7 +99,7 @@ process.env.JWT_SECRET_KEY,
                 secure:false,
                 maxAge:2*24*60*60*1000
             })
-            res.redirect('/userDashboard')
+            res.redirect('/customer/workout')
             
         } catch (err) {
             next(err)

@@ -5,6 +5,8 @@ import cookieParser from 'cookie-parser';
 
 import customerUserRoute from './features/customer/users/user.Route.js';
 import adminRoutes from './features/admin/users/admin.Route.js';
+import { jwtToken } from './middleware/customerJWTAuth.Middleware.js';
+import workoutRoutes from './features/customer/workouts/workout.Route.js';
 
 const app = express();
 
@@ -80,22 +82,14 @@ app.use((req, res, next) => {
 });
 
 
-// =======================
-// ROUTES
-// =======================
-
 app.use('/customerUser', customerUserRoute);
+app.use('/customer/workout',jwtToken,workoutRoutes);
 
 app.use('/adminUser', adminRoutes);
 
-
-// =======================
-// HOME ROUTE
-// =======================
-
 app.get('/', (req, res) => {
 
-res.redirect('/customerUser/signin')
+res.redirect('/')
 })
 
 

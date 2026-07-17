@@ -1,0 +1,335 @@
+<div class="container py-5">
+
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold mb-1">
+                <i class="bi bi-pencil-square text-primary"></i>
+                Edit Workout
+            </h2>
+
+            <p class="text-muted mb-0">
+                Update your workout details
+            </p>
+
+        </div>
+
+        <a href="/customer/workout" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i>
+            Back
+        </a>
+
+    </div>
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow border-0">
+
+                <div class="card-body p-4">
+
+                    <form action="/customer/workout/edit/<%= workout._id %>" method="POST">
+
+                        <!-- Exercise Name -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-semibold">
+                                Exercise Name
+                            </label>
+
+                            <input
+                                type="text"
+                                name="exerciseName"
+                                class="form-control"
+                                value="<%= workout.exerciseName %>"
+                                >
+<% if(errors?.exerciseName){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.exerciseName.msg %>
+
+</div>
+
+<% } %>
+
+                        </div>
+
+
+                        <!-- Muscle Group -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-semibold">
+                                Muscle Group
+                            </label>
+
+                            <select
+                                name="muscleGroup"
+                                class="form-select"
+                                >
+                                <% if(errors?.muscleGroup){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.muscleGroup.msg %>
+
+</div>
+
+<% } %>
+
+
+                                <option value="Chest" <%= workout.muscleGroup==="Chest" ? "selected":"" %>>Chest</option>
+
+                                <option value="Back" <%= workout.muscleGroup==="Back" ? "selected":"" %>>Back</option>
+
+                                <option value="Shoulders" <%= workout.muscleGroup==="Shoulders" ? "selected":"" %>>Shoulders</option>
+
+                                <option value="Legs" <%= workout.muscleGroup==="Legs" ? "selected":"" %>>Legs</option>
+
+                                <option value="Biceps" <%= workout.muscleGroup==="Biceps" ? "selected":"" %>>Biceps</option>
+
+                                <option value="Triceps" <%= workout.muscleGroup==="Triceps" ? "selected":"" %>>Triceps</option>
+
+                                <option value="Abs" <%= workout.muscleGroup==="Abs" ? "selected":"" %>>Abs</option>
+
+                                <option value="Cardio" <%= workout.muscleGroup==="Cardio" ? "selected":"" %>>Cardio</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Day -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-semibold">
+                                Workout Day
+                            </label>
+
+                            <select
+                                name="day"
+                                class="form-select"
+                                >
+<% if(errors?.day){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.day.msg %>
+
+</div>
+
+<% } %>
+
+                                <% ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"].forEach(day=>{ %>
+
+                                    <option
+                                        value="<%= day %>"
+                                        <%= workout.day===day ? "selected" : "" %>>
+
+                                        <%= day %>
+
+                                    </option>
+
+                                <% }) %>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Sets
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="sets"
+                                    class="form-control"
+                                    value="<%= workout.sets %>"
+                                    min="1"
+                                    >
+                                    <% if(errors?.sets){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.sets.msg %>
+
+</div>
+
+<% } %>
+
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Reps
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="reps"
+                                    class="form-control"
+                                    value="<%= workout.reps %>"
+                                    min="1"
+                                    >
+                                    <% if(errors?.reps){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.reps.msg %>
+
+</div>
+
+<% } %>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Weight (Kg)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="weight"
+                                    class="form-control"
+                                    value="<%= workout.weight %>"
+                                    min="0">
+                                    <% if(errors?.weight){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.weight.msg %>
+
+</div>
+
+<% } %>
+
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Duration (Minutes)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="duration"
+                                    class="form-control"
+                                    value="<%= workout.duration %>"
+                                    min="1"
+                                    >
+                                                                        <% if(errors?.duration){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.duration.msg %>
+
+</div>
+
+<% } %>
+
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Notes -->
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Notes
+                            </label>
+
+                            <textarea
+                                name="notes"
+                                rows="4"
+                                class="form-control"
+                                placeholder="Add workout notes..."><%= workout.notes || "" %></textarea>
+
+                        </div>
+
+
+                        <!-- Completed -->
+
+                        <div class="form-check form-switch mb-4">
+
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="completed"
+                                name="completed"
+                                value="true"
+                                <%= workout.completed ? "checked" : "" %>>
+
+                            <label
+                                class="form-check-label fw-semibold"
+                                for="completed">
+
+                                Mark as Completed
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Buttons -->
+
+                        <div class="d-flex justify-content-end gap-2">
+
+                            <a
+                                href="/customer/workout"
+                                class="btn btn-outline-secondary">
+
+                                Cancel
+
+                            </a>
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary">
+
+                                <i class="bi bi-check-circle"></i>
+                                Update Workout
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

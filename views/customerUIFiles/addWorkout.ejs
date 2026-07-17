@@ -1,0 +1,296 @@
+<div class="container py-4">
+
+    <!-- Header -->
+    <div class="mb-4">
+        <h2 class="fw-bold mb-1">
+            Add New Workout
+        </h2>
+
+        <p class="text-muted mb-0">
+            Record your exercise and track your fitness progress
+        </p>
+    </div>
+
+
+    <!-- Workout Form Card -->
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-md-8 col-lg-6">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body p-4">
+
+
+                    <form action="/customer/workout/add" method="POST">
+
+
+                        <!-- Exercise Name -->
+                        <div class="mb-3">
+
+                            <label class="form-label fw-semibold">
+                                Exercise Name
+                            </label>
+
+                            <input 
+                                type="text" 
+                                name="exerciseName"
+                                class="form-control"
+                                placeholder="Eg. Bench Press"
+                                >
+<% if(errors?.exerciseName){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.exerciseName.msg %>
+
+</div>
+
+<% } %>
+
+                        </div>
+
+
+
+                        <!-- Day -->
+                        <div class="mb-3">
+
+                            <label class="form-label fw-semibold">
+                                Workout Day
+                            </label>
+
+                            <select 
+                                name="day"
+                                class="form-select"
+                                >
+
+                                <option value="">
+                                    Select Day
+                                </option>
+
+                                <option>Monday</option>
+                                <option>Tuesday</option>
+                                <option>Wednesday</option>
+                                <option>Thursday</option>
+                                <option>Friday</option>
+                                <option>Saturday</option>
+                                <option>Sunday</option>
+
+                            </select>
+<% if(errors?.day){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.day.msg %>
+
+</div>
+
+<% } %>
+
+                        </div>
+
+
+
+
+                        <!-- Muscle Group -->
+                        <div class="mb-3">
+
+                            <label class="form-label fw-semibold">
+                                Muscle Group
+                            </label>
+
+                            <select 
+                                name="muscleGroup"
+                                class="form-select"
+                                >
+
+
+                                <option value="">
+                                    Select Muscle
+                                </option>
+
+                                <option>Chest</option>
+                                <option>Back</option>
+                                <option>Shoulder</option>
+                                <option>Biceps</option>
+                                <option>Triceps</option>
+                                <option>Legs</option>
+                                <option>Abs</option>
+
+
+                            </select>
+<% if(errors?.muscleGroup){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.muscleGroup.msg %>
+
+</div>
+
+<% } %>
+
+                        </div>
+
+
+
+
+                        <!-- Sets and Reps -->
+                        <div class="row">
+
+
+                            <div class="col-12 col-sm-6 mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Sets
+                                </label>
+
+                                <input 
+                                    type="number"
+                                    name="sets"
+                                    class="form-control"
+                                    placeholder="Eg. 4"
+                                    >
+<% if(errors?.sets){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.sets.msg %>
+
+</div>
+
+<% } %>
+
+                            </div>
+
+
+
+                            <div class="col-12 col-sm-6 mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Reps
+                                </label>
+
+                                <input 
+                                    type="number"
+                                    name="reps"
+                                    class="form-control"
+                                    placeholder="Eg. 12"
+                                    >
+                                    <% if(errors?.reps){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.reps.msg %>
+
+</div>
+
+<% } %>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+                        <!-- Weight and Duration -->
+                        <div class="row">
+
+
+                            <div class="col-12 col-sm-6 mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Weight (kg)
+                                </label>
+
+                                <input 
+                                    type="number"
+                                    name="weight"
+                                    class="form-control"
+                                    placeholder="Eg. 50">
+<% if(errors?.weight){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.weight.msg %>
+
+</div>
+
+<% } %>
+
+                            </div>
+
+
+
+                            <div class="col-12 col-sm-6 mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Duration (min)
+                                </label>
+
+                                <input 
+                                    type="number"
+                                    name="duration"
+                                    class="form-control"
+                                    placeholder="Eg. 45">
+<% if(errors?.duration){ %>
+
+<div class="text-danger small mt-1">
+
+<%= errors.duration.msg %>
+
+</div>
+
+<% } %>
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+                        <!-- Buttons -->
+                        <div class="d-flex flex-column flex-sm-row gap-2 mt-4">
+
+
+                            <button 
+                                type="submit"
+                                class="btn btn-primary w-100">
+
+                                <i class="bi bi-check-circle"></i>
+                                Save Workout
+
+                            </button>
+
+
+                            <a 
+                                href="/customer/workout"
+                                class="btn btn-outline-secondary w-100">
+
+                                Cancel
+
+                            </a>
+
+
+                        </div>
+
+
+
+                    </form>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>

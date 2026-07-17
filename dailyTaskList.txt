@@ -1,35 +1,13 @@
-todays taks->[
-    . Make customer and admin user code-{
-        signup,signin
-
-    } -- done
-    . get JWT Auth for both
-    . Make ejs for both->{
-        signup,signin
-    } -- done
-    . set applicaitonError file --done
-    .set MongoDb--done
-    . set .env -- done
-    . make upload file -- done
+todays taks=[
+    workout page for customer controller -{
+        get workout()
+add workout()
+filter workout by(day,name)
+deletwokrot
+update workout
+marked workout as completed
+    }
 ]
-
-tomorrow task->[
-    Create profile syset--{
-        admin,customer
-    },
-    create admin dashboard(total user,total trainers,recet activity),
-    forgot anad resetPass
-    create layout(common for both) and navbar(seperated)--{
-        cutomer,admin
-    },--done
-    createEmailService-->{
-        welcome mail(for now only) 
-    }--done
-    start adding validaiton-->{
-        in both login and register routes
-    }--done
-]
-
 
 BREVO_EMAIL=b1d121001@smtp-brevo.com
 BREVO_SMTP_KEY=bskIhww6bbq9W6B
